@@ -57,3 +57,4 @@ Read your cards or make your own! Remember, this is about YOU and YOUR journey!
 ### **_Credits_**
 
 [Hollow Valley Oracle Deck](https://www.hollowvalley.com/shop/edxf00rqom69eej4bxunpzrk12r0rc)
+# Oracle-Deck

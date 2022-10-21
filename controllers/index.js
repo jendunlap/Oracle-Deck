@@ -21,6 +21,19 @@ const getAllCards = async (req, res) => {
   }
 }
 
+const getCardById = async (req, res) => {
+  try {
+    const { id } = req.params
+    const card = await Card.findById(id)
+    if (card) {
+      return res.status(200).json({ card })
+    }
+    return res.status(404).send('The card does not exist')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
 const getAllSymbols = async (req, res) => {
   try {
     const symbols = await Symbol.find()
@@ -30,8 +43,23 @@ const getAllSymbols = async (req, res) => {
   }
 }
 
+const getSymbolById = async (req, res) => {
+  try {
+    const { id } = req.params
+    const symbol = await Symbol.findById(id)
+    if (symbol) {
+      return res.status(200).json({ symbol })
+    }
+    return res.status(404).send('The symbol does not exist')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
 module.exports = {
   createCard,
   getAllCards,
-  getAllSymbols
+  getCardById,
+  getAllSymbols,
+  getSymbolById
 }

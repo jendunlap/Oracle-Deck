@@ -34,6 +34,30 @@ const getCardById = async (req, res) => {
   }
 }
 
+const updateCard = async (req, res) => {
+  try {
+    const card = await Card.findByIdAndUpdate(req.params.id, req.body, {
+      new: true
+    })
+    res.status(200).json(card)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
+const deleteCard = async (req, res) => {
+  try {
+    const { id } = req.params
+    const deleted = await Card.findByIdAndDelete(id)
+    if (deleted) {
+      return res.status(200).send('Card deleted')
+    }
+    throw new Error('Card not found')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
 const getAllSymbols = async (req, res) => {
   try {
     const symbols = await Symbol.find()
@@ -60,6 +84,8 @@ module.exports = {
   createCard,
   getAllCards,
   getCardById,
+  updateCard,
+  deleteCard,
   getAllSymbols,
   getSymbolById
 }

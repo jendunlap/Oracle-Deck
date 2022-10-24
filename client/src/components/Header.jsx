@@ -5,12 +5,12 @@ const Header = () => {
   return (
     <header className="header">
       <nav>
-        <Link to='/'>Home</Link>
-        <Link to='/dailypull'>Daily Pull</Link>
-        <Link to='/cards'>Deck</Link>
-        <Link to='/mycards'>My Cards</Link>
-        <Link to='/createcard'>Create Card</Link>
-        <Link to='/about'>About</Link>
+        <Link to='/' className="headerLink">Home</Link>
+        <Link to='/dailypull' className="headerLink">Daily Pull</Link>
+        <Link to='/cards' className="headerLink">Deck</Link>
+        <Link to='/mycards' className="headerLink">My Cards</Link>
+        <Link to='/createcard' className="headerLink">Create Card</Link>
+        <Link to='/about' className="headerLink">About</Link>
       </nav>
     </header>
   )

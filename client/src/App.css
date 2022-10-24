@@ -1,20 +1,67 @@
 body {
+  background-color: black;
   margin: 0;
   text-align: center;
-  background-image: url('https://i.imgur.com/lWgQkB9.jpg');
-  background-size: 100%;
 }
 
 .header {
   background-color: black;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  height: 3em;
+  color: white;
+  text-decoration: none;
 }
 
-.startLinks {
+.headerLink {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.headerLink:hover {
+  color: gold
+}
+
+.homeLinks {
   text-align: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+
+.homeImage {
+  padding: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.homePage {
+  background-image: url('https://i.imgur.com/lWgQkB9.jpg');
+  background-size: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 100px;
+}
+
+.cardGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cardName{
+  color: white;
+}
+
+.cardImage {
+  background-color: white;
+}
+
+.createForm {
+  color: white;
 }

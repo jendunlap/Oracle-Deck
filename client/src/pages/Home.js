@@ -3,13 +3,21 @@ import { Link } from 'react-router-dom'
 const Home = () => {
   return (
     <div className="homePage">
-      {/* <div>Hollow Valley</div> */}
       <div>
-        <div className="startLinks">
-          <Link to="/dailypull">Daily Pull</Link>{' '}
-          <Link to="/cards">All Cards</Link>
-          <Link to="/createcard">Create a Card</Link>
-          <Link to="/about">About</Link>
+        <h1>HOLLOW VALLEY</h1>
+        <div className="homeLinks">
+          <Link to="/dailypull" className="homeImage">
+            Daily Pull
+          </Link>
+          <Link to="/cards" className="homeImage">
+            All Cards
+          </Link>
+          <Link to="/createcard" className="homeImage">
+            Create a Card
+          </Link>
+          <Link to="/about" className="homeImage">
+            About
+          </Link>
         </div>
       </div>
     </div>

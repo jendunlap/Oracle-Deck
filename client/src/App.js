@@ -7,6 +7,7 @@ import DailyPull from './pages/DailyPull'
 import AllCards from './pages/AllCards'
 import Create from './pages/Create'
 import MyCards from './pages/MyCards'
+import CardInfo from './pages/CardInfo'
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/cards" element={<AllCards />} />
           <Route path="/createcard" element={<Create />} />
           <Route path="/mycards" element={<MyCards />} />
+          <Route path="/cards/:cardId" element={<CardInfo />} />
         </Routes>
       </main>
     </div>

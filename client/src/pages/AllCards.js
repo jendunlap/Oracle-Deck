@@ -30,6 +30,7 @@ const ViewCards = () => {
           <Card
             id={card._id}
             key={card._id}
+            base={card.base}
             image={card.image}
             name={card.name}
             onClick={viewCard}

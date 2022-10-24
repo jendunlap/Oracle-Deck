@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 const CardInfo = () => {
@@ -11,6 +11,17 @@ const CardInfo = () => {
     const response = await axios.get(`http://localhost:3001/cards/${cardId}`)
     console.log(response)
     setCardInfo(response.data.card)
+  }
+
+  let navigate = useNavigate()
+
+  const handleClick = async (event) => {
+    event.preventDefault()
+    let response = await axios.delete(`http://localhost:3001/cards/${cardId}`)
+    const back = () => {
+      navigate(`/cards`)
+    }
+    back()
   }
 
   useEffect(() => {
@@ -42,9 +53,10 @@ const CardInfo = () => {
           </section>
           <section>
             <div className="cardSymbols">
-              <h3>{cardInfo.symbols}</h3>
+              <h3>{cardInfo.symbols.image}</h3>
             </div>
           </section>
+          <button onClick={handleClick}> x </button>
         </div>
       ) : null}
     </div>

@@ -1,19 +1,19 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-const CreateCard = (props) => {
+const Create = () => {
   const initialState = {
     name: '',
     keywords: [],
     reverseKeywords: [],
-    description: ''
+    description: '',
+    base: false
   }
   const [formState, setFormState] = useState(initialState)
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    let res = await axios.post('http://localhost:3001/cards', formState)
-    console.log(res.data)
+    let response = await axios.post('http://localhost:3001/cards', formState)
     setFormState(initialState)
   }
 
@@ -40,7 +40,7 @@ const CreateCard = (props) => {
           {' '}
           - Select an Image -{' '}
         </option>
-        <option value="image1">Image 1</option>
+        <option value="Fox">Image 1</option>
         <option value="image2">Image 2</option>
         <option value="image3">Image 3</option>
       </select>
@@ -71,4 +71,4 @@ const CreateCard = (props) => {
   )
 }
 
-export default CreateCard
+export default Create

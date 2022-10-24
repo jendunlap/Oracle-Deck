@@ -10,7 +10,7 @@ router.get('/cards/:id', controllers.getCardById)
 
 router.put('/cards/:id', controllers.updateCard)
 
-router.delete('cards.:id', controllers.deleteCard)
+router.delete('/cards/:id', controllers.deleteCard)
 
 router.get('/symbols', controllers.getAllSymbols)
 

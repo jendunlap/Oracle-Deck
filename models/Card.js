@@ -3,7 +3,7 @@ const { Schema } = require('mongoose')
 const Card = new Schema(
   {
     name: { type: String, required: true },
-    image: { type: String, required: true },
+    image: { type: String },
     keywords: [{ type: String, required: true }],
     reverseKeywords: [{ type: String, required: true }],
     description: { type: String, required: true },

@@ -16,6 +16,8 @@ router.get('/symbols', controllers.getAllSymbols)
 
 router.get('/symbols/:id', controllers.getSymbolById)
 
+router.post('/symbols', controllers.createSymbol)
+
 router.post('/cards', controllers.createCard)
 
 module.exports = router

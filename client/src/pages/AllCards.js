@@ -26,16 +26,19 @@ const ViewCards = () => {
   return (
     <div className="cardGrid">
       <div className="allCardsCard">
-        {cards.map((card) => (
-          <Card
-            id={card._id}
-            key={card._id}
-            base={card.base}
-            image={card.image}
-            name={card.name}
-            onClick={viewCard}
-          />
-        ))}
+        {cards
+          .filter((card) => card.base === true)
+          .sort((a, b) => a.name.localeCompare(b.name))
+          .map((card) => (
+            <Card
+              id={card._id}
+              key={card._id}
+              base={card.base}
+              image={card.image}
+              name={card.name}
+              onClick={viewCard}
+            />
+          ))}
       </div>
     </div>
   )

@@ -4,6 +4,12 @@ const { Symbol, Card } = require('../models/')
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
 const main = async () => {
+  const breeze = await new Symbol({
+    name: 'BREEZE',
+    image: 'https://i.imgur.com/ZuiGaPH.jpg',
+    keywords: ['breath', 'movement', 'ideation']
+  })
+  breeze.save()
   const bottle = await new Symbol({
     name: 'BOTTLE',
     image: 'https://i.imgur.com/tfmec3A.jpg',
@@ -40,12 +46,24 @@ const main = async () => {
     keywords: ['mysteries', 'darkness', 'grief']
   })
   crescentMoon.save()
+  const elementalSymbol = await new Symbol({
+    name: 'ELEMENTAL SYMBOL',
+    image: 'https://i.imgur.com/5HCpGOE.jpg',
+    keywords: ['air', 'suit of swords']
+  })
+  elementalSymbol.save()
   const eucalyptus = await new Symbol({
     name: 'EUCALYPTUS',
     image: 'https://i.imgur.com/hQ6sMZZ.jpg',
     keywords: ['cleansing', 'protection', 'healing']
   })
   eucalyptus.save()
+  const feather = await new Symbol({
+    name: 'FEATHER',
+    image: 'https://i.imgur.com/2FQ6Quf.jpg',
+    keywords: ['lightness', 'communication', 'creation']
+  })
+  feather.save()
   const fir = await new Symbol({
     name: 'FIR',
     image: 'https://i.imgur.com/9WNuMqI.jpg',
@@ -108,6 +126,21 @@ const main = async () => {
   skull.save()
 
   const cards = [
+    {
+      name: 'AIR',
+      image: 'https://i.imgur.com/1cqFrzb.jpg',
+      keywords: [
+        'imagination',
+        'weightlessness',
+        'communication of ideas',
+        'movement'
+      ],
+      reverseKeywords: ['perspective', 'force', 'overwhelm', 'anxiety'],
+      description:
+        'Air requires us to understand the link between ideation and progression. Dreams provide insight and clarity, but bringing those dreams into reality and into the world around us is what makes the world a more exciting and interesting place. When out of balance, Air can cause anxiety, overwhelm, and an inability to communicate our conceptual ideas or feelings. If we get stuck in the clouds, our plans stay there instead of being moved through us into tangible magic. When Air gifts you with inspiration, be sure to share it. Use it to bring something tangible into the world to be experienced by the senses.',
+      base: true,
+      symbols: [elementalSymbol._id, feather._id, breeze._id]
+    },
     {
       name: 'FOX',
       image: 'https://i.imgur.com/1cqFrzb.jpg',

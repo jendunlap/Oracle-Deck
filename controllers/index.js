@@ -24,7 +24,7 @@ const getAllCards = async (req, res) => {
 const getCardById = async (req, res) => {
   try {
     const { id } = req.params
-    const card = await Card.findById(id)
+    const card = await Card.findById(id).populate('symbols')
     if (card) {
       return res.status(200).json({ card })
     }
@@ -80,6 +80,18 @@ const getSymbolById = async (req, res) => {
   }
 }
 
+const createSymbol = async (req, res) => {
+  try {
+    const symbol = await new Symbol(req.body)
+    await symbol.save()
+    return res.status(201).json({
+      symbol
+    })
+  } catch (error) {
+    return res.status(500).json({ error: error.message })
+  }
+}
+
 module.exports = {
   createCard,
   getAllCards,
@@ -87,5 +99,6 @@ module.exports = {
   updateCard,
   deleteCard,
   getAllSymbols,
-  getSymbolById
+  getSymbolById,
+  createSymbol
 }

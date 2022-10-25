@@ -2,6 +2,7 @@ body {
   background-color: black;
   margin: 0;
   text-align: center;
+  color: white;
 }
 
 .header {
@@ -23,6 +24,8 @@ body {
 .headerLink:hover {
   color: gold
 }
+
+/* HOME PAGE */
 
 .homeLinks {
   text-align: center;
@@ -48,20 +51,60 @@ body {
   padding: 100px;
 }
 
-.cardGrid {
+/* ALL CARDS DISPLAY */
+
+.allCardsCard {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.cardName{
-  color: white;
-}
-
 .cardImage {
-  background-color: white;
+  width: 400px;
+  border-radius: 15px;
 }
 
-.createForm {
+.cardDiv {
+  width: 400px;
+  height: 600px;
+  background-color: white;
+  color: black;
+  margin: 20px;
+  border-radius: 15px;
+}
+
+/* CARD INFO */
+
+.cardInfo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.cardKeywords {
+  display: flex;
+  justify-content: center;
+}
+
+.description {
+  background-color: rgb(83, 81, 81);
+  padding: 10px 20px 10px 20px;
+}
+
+.cardSymbols {
+  display: flex;
+  justify-content: center;
+}
+
+.symbolsList {
+  list-style-type: none;
+}
+
+/* ALL SYMBOLS PAGE */
+
+.allSymbols {
+  display: flex;
+  flex-wrap: wrap;
   color: white;
+  background-color: black;
 }

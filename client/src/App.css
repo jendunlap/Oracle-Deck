@@ -73,6 +73,14 @@ body {
   border-radius: 15px;
 }
 
+/* MY CARDS DISPLAY */
+
+.myCardsCard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 /* CARD INFO */
 
 .cardInfo {
@@ -107,4 +115,33 @@ body {
   flex-wrap: wrap;
   color: white;
   background-color: black;
+}
+
+/* FORM */
+
+.createForm, .modifyForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 700px;
+}
+
+.cardImageButton {
+  background-color:rgb(83, 81, 81);
+  padding: 20px;
+}
+
+.imageMap {
+  display: flex;
+  height: 300px;
+  width: 300px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.mappedImages {
+  height: 100px;
+  width: 100px;
 }

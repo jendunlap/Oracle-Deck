@@ -24,8 +24,8 @@ const ViewCards = () => {
   }, [cardsId])
 
   return (
-    <div className="cardGrid">
-      <div className="allCardsCard">
+    <div className="myCardGrid">
+      <div className="myCardsCard">
         {cards
           .filter((card) => card.base === false)
           .map((card) => (

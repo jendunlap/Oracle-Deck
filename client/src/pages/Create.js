@@ -1,7 +1,11 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import images from '../images.js'
 
 const Create = () => {
+  let navigate = useNavigate()
+
   const initialState = {
     name: '',
     keywords: [],
@@ -12,10 +16,19 @@ const Create = () => {
   }
   const [formState, setFormState] = useState(initialState)
 
+  const [selecting, setSelecting] = useState(false)
+
+  const selectImage = (image) => {
+    let tempState = { ...formState, image: image.url }
+    setFormState(tempState)
+    setSelecting(false)
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault()
-    let response = await axios.post('http://localhost:3001/cards', formState)
+    await axios.post('http://localhost:3001/cards', formState)
     setFormState(initialState)
+    navigate('/mycards')
   }
 
   const handleChange = (event) => {
@@ -32,17 +45,23 @@ const Create = () => {
         value={formState.name}
       />
       <label htmlFor="cardImage">Card Image:</label>
-      <select onChange={handleChange} id="cardImage" value={formState.image}>
-        <option value="" disabled>
-          {' '}
-          - Select an Image -{' '}
-        </option>
-        <option type="image" value="https://imgur.com/a/0xJnY9J">
-          Fox
-        </option>
-        <option value="image2">Image 2</option>
-        <option value="image3">Image 3</option>
-      </select>
+      {selecting ? (
+        <div className="imageMap">
+          {images.map((image, index) => (
+            <img
+              className="mappedImages"
+              key={index}
+              src={image.url}
+              alt={image.name}
+              onClick={() => selectImage(image)}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="cardImageButton" onClick={() => setSelecting(true)}>
+          Select
+        </div>
+      )}
       <label htmlFor="keywords">Keywords:</label>
       <input
         onChange={handleChange}

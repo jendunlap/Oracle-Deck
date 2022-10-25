@@ -5,7 +5,6 @@ import Symbol from '../components/Symbol'
 
 const CardInfo = () => {
   let { cardId } = useParams()
-  let { symbolId } = useParams()
 
   const [cardInfo, setCardInfo] = useState(null)
 
@@ -42,7 +41,7 @@ const CardInfo = () => {
               className="imageForCard"
               src={cardInfo.image}
               alt={cardInfo.name}
-            />
+            ></img>
             <h1>{cardInfo.name}</h1>
           </div>
           <div className="cardInfoRight">

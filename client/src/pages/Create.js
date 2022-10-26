@@ -27,9 +27,9 @@ const Create = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     await axios.post('http://localhost:3001/cards', formState)
+    // setFormState(initialState)
     setFormState(formState.keywords.split(' '))
     setFormState(formState.reverseKeywords.split(' '))
-    setFormState(initialState)
     navigate('/mycards')
   }
 
@@ -44,54 +44,58 @@ const Create = () => {
 
   return (
     <form className="createForm" onSubmit={handleSubmit}>
-      <label htmlFor="name">Card Name:</label>
-      <input
-        onChange={handleChange}
-        type="text"
-        id="name"
-        value={formState.name}
-      />
-      <label htmlFor="createCardImage">Card Image:</label>
-      {selecting ? (
-        <div className="imageMap">
-          {images.map((image, index) => (
-            <img
-              className="mappedImages"
-              key={index}
-              src={image.url}
-              alt={image.name}
-              onClick={() => selectImage(image)}
-            />
-          ))}
-        </div>
-      ) : (
-        <div className="cardImageButton" onClick={() => setSelecting(true)}>
-          Select
-        </div>
-      )}
-      <label htmlFor="keywords">Keywords:</label>
-      <input
-        onChange={handleChange}
-        type="text"
-        id="keywords"
-        value={formState.keywords}
-      />
-      <label htmlFor="reverseKeywords">Keywords for Reverse:</label>
-      <input
-        onChange={handleChange}
-        type="text"
-        id="reverseKeywords"
-        value={formState.reverseKeywords}
-      />
-      <label htmlFor="description">Card Description: </label>
-      <textarea
-        onChange={handleChange}
-        id="description"
-        cols="30"
-        rows="10"
-        value={formState.description}
-      ></textarea>
-      <button type="submit">Send</button>
+      <div className="left">
+        <label htmlFor="name">Card Name:</label>
+        <input
+          onChange={handleChange}
+          type="text"
+          id="name"
+          value={formState.name}
+        />
+        <label htmlFor="createCardImage">Card Image:</label>
+        {selecting ? (
+          <div className="imageMap">
+            {images.map((image, index) => (
+              <img
+                className="mappedImages"
+                key={index}
+                src={image.url}
+                alt={image.name}
+                onClick={() => selectImage(image)}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="cardImageButton" onClick={() => setSelecting(true)}>
+            Select
+          </div>
+        )}
+      </div>
+      <div className="right">
+        <label htmlFor="keywords">Keywords:</label>
+        <input
+          onChange={handleChange}
+          type="text"
+          id="keywords"
+          value={formState.keywords}
+        />
+        <label htmlFor="reverseKeywords">Keywords for Reverse:</label>
+        <input
+          onChange={handleChange}
+          type="text"
+          id="reverseKeywords"
+          value={formState.reverseKeywords}
+        />
+        <label htmlFor="description">Card Description: </label>
+        <textarea
+          onChange={handleChange}
+          id="description"
+          cols="30"
+          rows="10"
+          value={formState.description}
+        ></textarea>
+        <button type="submit">Send</button>
+      </div>
     </form>
   )
 }

@@ -74,8 +74,9 @@ body {
 }
 
 .cardImage {
-  width: 400px;
+  width: 390px;
   border-radius: 15px;
+  border: 5px solid white;
 }
 
 .cardDiv {
@@ -163,13 +164,13 @@ body {
 .imageMap {
   display: flex;
   height: 300px;
-  width: 300px;
+  width: 100%;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 
 .mappedImages {
-  height: 100px;
+  height: 110px;
   width: 100px;
 }

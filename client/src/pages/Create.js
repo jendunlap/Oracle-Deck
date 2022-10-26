@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import images from '../images.js'
@@ -8,8 +8,8 @@ const Create = () => {
 
   const initialState = {
     name: '',
-    keywords: [],
-    reverseKeywords: [],
+    keywords: '',
+    reverseKeywords: '',
     description: '',
     base: false,
     image: ''
@@ -27,6 +27,8 @@ const Create = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     await axios.post('http://localhost:3001/cards', formState)
+    setFormState(formState.keywords.split(' '))
+    setFormState(formState.reverseKeywords.split(' '))
     setFormState(initialState)
     navigate('/mycards')
   }
@@ -34,6 +36,11 @@ const Create = () => {
   const handleChange = (event) => {
     setFormState({ ...formState, [event.target.id]: event.target.value })
   }
+
+  // useEffect(() => {
+  //   setFormState(formState.keywords.split(' '))
+  //   setFormState(formState.reverseKeywords.split(' '))
+  // }, [])
 
   return (
     <form className="createForm" onSubmit={handleSubmit}>
@@ -44,7 +51,7 @@ const Create = () => {
         id="name"
         value={formState.name}
       />
-      <label htmlFor="cardImage">Card Image:</label>
+      <label htmlFor="createCardImage">Card Image:</label>
       {selecting ? (
         <div className="imageMap">
           {images.map((image, index) => (

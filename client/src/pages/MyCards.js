@@ -28,6 +28,7 @@ const ViewCards = () => {
       <div className="myCardsCard">
         {cards
           .filter((card) => card.base === false)
+          .sort((a, b) => a.name.localeCompare(b.name))
           .map((card) => (
             <Card
               id={card._id}

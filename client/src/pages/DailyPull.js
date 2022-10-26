@@ -36,27 +36,29 @@ const DailyPull = () => {
   }, [cardId])
 
   return (
-    <>
+    <div className="cardInfo">
       {cardInfo ? (
-        <div className="cardInfo">
-          <div className="cardInfoLeft">
+        <div className="viewInfo">
+          <div className="infoLeft">
             <img
               className="imageForCard"
               src={cardInfo.image}
               alt={cardInfo.name}
             ></img>
-            <h1>{cardInfo.name}</h1>
+            <h1 className="name">{cardInfo.name}</h1>
           </div>
-          <div className="cardInfoRight">
+          <div className="infoRight">
             <div className="cardKeywords">
               <div className="keywords">
-                {cardInfo.keywords.map((keyword) => (
-                  <h3 key={keyword} className="keywordsList">
+                <img src="https://i.imgur.com/1FQFvDq.jpeg" />
+                {cardInfo.keywords.map((keyword, i) => (
+                  <h3 key={i} className="keywordsList">
                     {keyword}
                   </h3>
                 ))}
               </div>
               <div className="reverseKeywords">
+                <img src="https://i.imgur.com/yMYW27q.jpg" />
                 {cardInfo.reverseKeywords.map((keyword) => (
                   <h3 key={keyword} className="keywordsList">
                     {keyword}
@@ -65,25 +67,25 @@ const DailyPull = () => {
               </div>
             </div>
             <div className="description">
-              <p>{cardInfo.description}</p>
+              <h5>{cardInfo.description}</h5>
             </div>
-            <div className="cardSymbols">
-              {/* {cardInfo.symbols.map((symbol) => (
+            {/* <div className="cardSymbols">
+              {cardInfo.symbols.map((symbol) => (
                 <Symbol
                   key={symbol._id}
                   name={symbol.name}
                   image={symbol.image}
                   keywords={symbol.keywords}
                 />
-              ))} */}
-            </div>
+              ))}
+            </div> */}
           </div>
         </div>
       ) : null}
-      <button className="backButton" onClick={() => navigate('/')}>
-        BACK
+      <button className="backButton" onClick={() => navigate('/cards')}>
+        ALL CARDS
       </button>
-    </>
+    </div>
   )
 }
 

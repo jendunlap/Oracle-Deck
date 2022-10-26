@@ -5,7 +5,7 @@ const Symbol = (props) => {
         <img src={props.image} alt={props.name}></img>
       </div>
       <div className="infoWrapper">
-        <h3>{props.name}</h3>
+        <h3 className="symbolName">{props.name}</h3>
         <ul>
           {props.keywords.map((keyword, index) => (
             <li className="symbolsList" key={index}>

@@ -40,9 +40,9 @@ const getCardById = async (req, res) => {
 
 const updateCard = async (req, res) => {
   try {
-    // req.body.keywords = req.body.keywords.split(' ')
-    // req.body.reverseKeywords = req.body.reverseKeywords.split(' ')
-    // req.body.symbols = [req.body.symbol.id]
+    req.body.keywords = req.body.keywords.split(' ')
+    req.body.reverseKeywords = req.body.reverseKeywords.split(' ')
+    req.body.symbols = [req.body.symbol.id]
     const card = await Card.findByIdAndUpdate(req.params.id, req.body, {
       new: true
     })
@@ -99,6 +99,17 @@ const createSymbol = async (req, res) => {
   }
 }
 
+const updateSymbol = async (req, res) => {
+  try {
+    const card = await Symbol.findByIdAndUpdate(req.params.id, req.body, {
+      new: true
+    })
+    res.status(200).json(card)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
 module.exports = {
   createCard,
   getAllCards,
@@ -107,5 +118,6 @@ module.exports = {
   deleteCard,
   getAllSymbols,
   getSymbolById,
-  createSymbol
+  createSymbol,
+  updateSymbol
 }

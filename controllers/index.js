@@ -2,6 +2,10 @@ const { Card, Symbol } = require('../models')
 
 const createCard = async (req, res) => {
   try {
+    req.body.keywords = req.body.keywords.split(' ')
+    req.body.reverseKeywords = req.body.reverseKeywords.split(' ')
+    req.body.symbols = [req.body.symbol.id]
+    console.log(req.body)
     const card = await new Card(req.body)
     await card.save()
     return res.status(201).json({
@@ -36,6 +40,9 @@ const getCardById = async (req, res) => {
 
 const updateCard = async (req, res) => {
   try {
+    // req.body.keywords = req.body.keywords.split(' ')
+    // req.body.reverseKeywords = req.body.reverseKeywords.split(' ')
+    // req.body.symbols = [req.body.symbol.id]
     const card = await Card.findByIdAndUpdate(req.params.id, req.body, {
       new: true
     })

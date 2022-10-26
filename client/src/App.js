@@ -12,8 +12,10 @@ import Modify from './pages/Modify'
 import Symbols from './pages/Symbols'
 
 const App = () => {
+  console.log(window.location)
   return (
     <div>
+      {/* {window.location.pathname === '/' ? null : <Header />} */}
       <Header />
       <main>
         <Routes>
@@ -26,7 +28,6 @@ const App = () => {
           <Route path="/cards/:cardId" element={<CardInfo />} />
           <Route path="/modifycard/:cardId" element={<Modify />} />
           <Route path="/symbols" element={<Symbols />} />
-          {/* <Route path="/symbols/:symbolId" element={<SymbolInfo />} /> */}
         </Routes>
       </main>
     </div>

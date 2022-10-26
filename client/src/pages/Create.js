@@ -12,11 +12,26 @@ const Create = () => {
     reverseKeywords: '',
     description: '',
     base: false,
-    image: ''
+    image: '',
+    symbol: ''
   }
   const [formState, setFormState] = useState(initialState)
 
   const [selecting, setSelecting] = useState(false)
+
+  const [selectingSymbol, setSelectingSymbol] = useState(false)
+
+  const [symbols, setSymbols] = useState([])
+
+  const getSymbols = async () => {
+    const response = await axios.get(`http://localhost:3001/symbols`)
+    setSymbols(response.data.symbols)
+    console.log(response.data.symbols)
+  }
+
+  useEffect(() => {
+    getSymbols()
+  }, [])
 
   const selectImage = (image) => {
     let tempState = { ...formState, image: image.url }
@@ -24,14 +39,19 @@ const Create = () => {
     setSelecting(false)
   }
 
-  console.log(formState)
+  const selectSymbol = (symbol) => {
+    let tempState = {
+      ...formState,
+      symbol: { id: symbol._id, image: symbol.image }
+    }
+    setFormState(tempState)
+    setSelectingSymbol(false)
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+    console.log(formState)
     await axios.post('http://localhost:3001/cards', formState)
-    // setFormState(initialState)
-    setFormState(formState.keywords.split(' '))
-    setFormState(formState.reverseKeywords.split(' '))
     navigate('/mycards')
   }
 
@@ -39,13 +59,8 @@ const Create = () => {
     setFormState({ ...formState, [event.target.id]: event.target.value })
   }
 
-  // useEffect(() => {
-  //   setFormState(formState.keywords.split(' '))
-  //   setFormState(formState.reverseKeywords.split(' '))
-  // }, [])
-
   return (
-    <>
+    <div className="form">
       <h1 className="createTitle">CREATE a CARD</h1>
       <form className="createForm" onSubmit={handleSubmit}>
         <div className="left">
@@ -57,7 +72,6 @@ const Create = () => {
             value={formState.name}
           />
           <label htmlFor="createCardImage">card image:</label>
-
           {selecting ? (
             <div className="imageMap">
               {images.map((image, index) => (
@@ -73,6 +87,7 @@ const Create = () => {
           ) : (
             <div className="cardImageButton" onClick={() => setSelecting(true)}>
               <img className="selectedImage" src={formState.image} />
+              CHANGE
             </div>
           )}
         </div>
@@ -99,12 +114,34 @@ const Create = () => {
             rows="10"
             value={formState.description}
           ></textarea>
-          <button className="submitButton" type="submit">
-            CREATE
-          </button>
+          <label htmlFor="createCardSymbol">card symbol:</label>
+          {selectingSymbol ? (
+            <div className="imageMap">
+              {symbols.map((symbol) => (
+                <img
+                  className="mappedSymbols"
+                  key={symbol._id}
+                  src={symbol.image}
+                  alt={symbol.name}
+                  onClick={() => selectSymbol(symbol)}
+                />
+              ))}
+            </div>
+          ) : (
+            <div
+              className="cardImageButton"
+              onClick={() => setSelectingSymbol(true)}
+            >
+              <img className="selectedImage" src={formState.symbol.image} />
+              CHANGE
+            </div>
+          )}
         </div>
       </form>
-    </>
+      <button className="submitButton" type="submit" onClick={handleSubmit}>
+        CREATE
+      </button>
+    </div>
   )
 }
 

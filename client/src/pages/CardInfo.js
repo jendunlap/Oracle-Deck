@@ -47,8 +47,8 @@ const CardInfo = () => {
           <div className="cardInfoRight">
             <div className="cardKeywords">
               <div className="keywords">
-                {cardInfo.keywords.map((keyword) => (
-                  <h3 key={keyword} className="keywordsList">
+                {cardInfo.keywords.map((keyword, i) => (
+                  <h3 key={i} className="keywordsList">
                     {keyword}
                   </h3>
                 ))}
@@ -89,6 +89,9 @@ const CardInfo = () => {
           )}
         </div>
       ) : null}
+      <button className="backButton" onClick={() => navigate('/cards')}>
+        ALL CARDS
+      </button>
     </>
   )
 }

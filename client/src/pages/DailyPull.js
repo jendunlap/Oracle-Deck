@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Navigate } from 'react-router-dom'
 import axios from 'axios'
 import Symbol from '../components/Symbol'
 
 const DailyPull = () => {
+  let navigate = useNavigate()
+
   let { cardId } = useParams()
 
   const [cardInfo, setCardInfo] = useState(null)
@@ -78,6 +80,9 @@ const DailyPull = () => {
           </div>
         </div>
       ) : null}
+      <button className="backButton" onClick={() => navigate('/')}>
+        BACK
+      </button>
     </>
   )
 }

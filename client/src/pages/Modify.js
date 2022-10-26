@@ -13,17 +13,41 @@ const Modify = () => {
     reverseKeywords: [],
     description: '',
     base: false,
-    image: ''
+    image: '',
+    symbol: ''
   }
 
   const [formState, setFormState] = useState(initialState)
 
   const [selecting, setSelecting] = useState(false)
 
+  const [selectingSymbol, setSelectingSymbol] = useState(false)
+
+  const [symbols, setSymbols] = useState([])
+
+  const getSymbols = async () => {
+    const response = await axios.get(`http://localhost:3001/symbols`)
+    setSymbols(response.data.symbols)
+    console.log(response.data.symbols)
+  }
+
+  useEffect(() => {
+    getSymbols()
+  }, [])
+
   const selectImage = (image) => {
     let tempState = { ...formState, image: image.url }
     setFormState(tempState)
     setSelecting(false)
+  }
+
+  const selectSymbol = (symbol) => {
+    let tempState = {
+      ...formState,
+      symbol: { id: symbol._id, image: symbol.image }
+    }
+    setFormState(tempState)
+    setSelectingSymbol(false)
   }
 
   useEffect(() => {
@@ -47,58 +71,88 @@ const Modify = () => {
   }
 
   return (
-    <form className="modifyForm" onSubmit={handleSubmit}>
-      <label htmlFor="name">Card Name:</label>
-      <input
-        onChange={handleChange}
-        type="text"
-        id="name"
-        value={formState.name}
-      />
-      <label htmlFor="image">Card Image:</label>
-      {selecting ? (
-        <div className="imageMap">
-          {images.map((image, index) => (
-            <img
-              className="mappedImages"
-              key={index}
-              src={image.url}
-              alt={image.name}
-              onClick={() => selectImage(image)}
-            />
-          ))}
+    <div className="form">
+      <h1 className="createTitle">MODIFY this CARD</h1>
+      <form className="createForm" onSubmit={handleSubmit}>
+        <div className="left">
+          <label htmlFor="name">card name:</label>
+          <input
+            onChange={handleChange}
+            type="text"
+            id="name"
+            value={formState.name}
+          />
+          <label htmlFor="createCardImage">card image:</label>
+          {selecting ? (
+            <div className="imageMap">
+              {images.map((image, index) => (
+                <img
+                  className="mappedImages"
+                  key={index}
+                  src={image.url}
+                  alt={image.name}
+                  onClick={() => selectImage(image)}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="cardImageButton" onClick={() => setSelecting(true)}>
+              <img className="selectedImage" src={formState.image} />
+              CHANGE
+            </div>
+          )}
         </div>
-      ) : (
-        <div className="cardImageButton" onClick={() => setSelecting(true)}>
-          Select
+        <div className="right">
+          <label htmlFor="keywords">keywords:</label>
+          <input
+            onChange={handleChange}
+            type="text"
+            id="keywords"
+            value={formState.keywords}
+          />
+          <label htmlFor="reverseKeywords">keywords for reverse:</label>
+          <input
+            onChange={handleChange}
+            type="text"
+            id="reverseKeywords"
+            value={formState.reverseKeywords}
+          />
+          <label htmlFor="description">card description: </label>
+          <textarea
+            onChange={handleChange}
+            id="description"
+            cols="30"
+            rows="10"
+            value={formState.description}
+          ></textarea>
+          <label htmlFor="createCardSymbol">card symbol:</label>
+          {selectingSymbol ? (
+            <div className="imageMap">
+              {symbols.map((symbol) => (
+                <img
+                  className="mappedSymbols"
+                  key={symbol._id}
+                  src={symbol.image}
+                  alt={symbol.name}
+                  onClick={() => selectSymbol(symbol)}
+                />
+              ))}
+            </div>
+          ) : (
+            <div
+              className="cardImageButton"
+              onClick={() => setSelectingSymbol(true)}
+            >
+              {/* <img className="selectedImage" src={formState.symbol.image} /> */}
+              CHANGE
+            </div>
+          )}
         </div>
-      )}
-      <label htmlFor="keywords">Keywords:</label>
-      <input
-        onChange={handleChange}
-        type="text"
-        id="keywords"
-        value={formState.keywords}
-      />
-      <label htmlFor="reverseKeywords">Keywords for Reverse:</label>
-      <input
-        onChange={handleChange}
-        type="text"
-        id="reverseKeywords"
-        value={formState.reverseKeywords}
-      />
-      <label htmlFor="description">Card Description: </label>
-      <textarea
-        onChange={handleChange}
-        id="description"
-        cols="30"
-        rows="10"
-        value={formState.description}
-      ></textarea>
-      <button className="submitButton" type="submit">
-        CREATE
+      </form>
+      <button className="submitButton" type="submit" onClick={handleSubmit}>
+        MODIFY
       </button>
-    </form>
+    </div>
   )
 }
 

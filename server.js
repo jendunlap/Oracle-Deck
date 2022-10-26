@@ -14,7 +14,7 @@ app.use(cors())
 
 app.use('/', routes)
 
-app.use(logger('dev'))
+app.use(logger())
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 

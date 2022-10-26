@@ -4,19 +4,23 @@ const Home = () => {
   return (
     <div className="homePage">
       <div>
-        <h1>HOLLOW VALLEY</h1>
+        <h1 className="homeTitle">HOLLOW VALLEY</h1>
         <div className="homeLinks">
-          <Link to="/dailypull" className="homeImage">
-            Daily Pull
-          </Link>
           <Link to="/cards" className="homeImage">
-            All Cards
+            <img src="https://i.imgur.com/xOYeoN5.png" />
+            <h2 className="showHover">DECK</h2>
+          </Link>
+          <Link to="/dailypull" className="homeImage">
+            <img src="https://i.imgur.com/XMmGJrz.png" />
+            <h2>RANDOM</h2>
           </Link>
           <Link to="/createcard" className="homeImage">
-            Create a Card
+            <img src="https://i.imgur.com/RMBZDMv.png" />
+            <h2>CREATE</h2>
           </Link>
           <Link to="/about" className="homeImage">
-            About
+            <img src="https://i.imgur.com/wP1PF2T.png" />
+            <h2>ABOUT</h2>
           </Link>
         </div>
       </div>

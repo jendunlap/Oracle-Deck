@@ -95,7 +95,9 @@ const Modify = () => {
         rows="10"
         value={formState.description}
       ></textarea>
-      <button type="submit">Send</button>
+      <button className="submitButton" type="submit">
+        CREATE
+      </button>
     </form>
   )
 }

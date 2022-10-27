@@ -4,7 +4,6 @@ const createCard = async (req, res) => {
   try {
     req.body.keywords = req.body.keywords.split(' ')
     req.body.reverseKeywords = req.body.reverseKeywords.split(' ')
-    // req.body.symbols = [req.body.symbols[0]._id]
     console.log(req.body)
     const card = await new Card(req.body)
     await card.save()
@@ -41,11 +40,6 @@ const getCardById = async (req, res) => {
 const updateCard = async (req, res) => {
   console.log(req.body)
   try {
-    // req.body.keywords = req.body.keywords.split(' ')
-    // req.body.reverseKeywords = req.body.reverseKeywords.split(' ')
-    // if (req.body.symbols.length > 0) {
-    //   req.body.symbols = [req.body.symbols[0]._id]
-    // }
     const card = await Card.findByIdAndUpdate(req.params.id, req.body, {
       new: true
     })

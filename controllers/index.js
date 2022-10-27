@@ -17,7 +17,7 @@ const createCard = async (req, res) => {
 
 const getAllCards = async (req, res) => {
   try {
-    const cards = await Card.find()
+    const cards = await Card.find().populate('symbols')
     return res.status(200).json({ cards })
   } catch (error) {
     return res.status(500).send(error.message)
@@ -44,6 +44,17 @@ const updateCard = async (req, res) => {
       new: true
     })
     res.status(200).json(card)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
+const updateSymbol = async (req, res) => {
+  try {
+    const symbol = await Symbol.findByIdAndUpdate(req.params.id, req.body, {
+      new: true
+    })
+    res.status(200).json(symbol)
   } catch (error) {
     return res.status(500).send(error.message)
   }
@@ -93,17 +104,6 @@ const createSymbol = async (req, res) => {
     })
   } catch (error) {
     return res.status(500).json({ error: error.message })
-  }
-}
-
-const updateSymbol = async (req, res) => {
-  try {
-    const symbol = await Symbol.findByIdAndUpdate(req.params.id, req.body, {
-      new: true
-    })
-    res.status(200).json(symbol)
-  } catch (error) {
-    return res.status(500).send(error.message)
   }
 }
 

@@ -63,20 +63,20 @@ const DailyPull = () => {
             </div>
             <div className="cardSymbols">
               {console.log(cardInfo.symbols)}
-              {/* {cardInfo.symbols.map((symbol) => (
+              {cardInfo?.symbols?.map((symbol) => (
                 <Symbol
                   key={symbol._id}
                   name={symbol.name}
                   image={symbol.image}
                   keywords={symbol.keywords}
                 />
-              ))} */}
+              ))}
             </div>
           </div>
         </div>
       ) : null}
-      <button className="backButton" onClick={() => navigate('/cards')}>
-        ALL CARDS
+      <button className="backButton" onClick={() => navigate('/')}>
+        BACK
       </button>
     </div>
   )

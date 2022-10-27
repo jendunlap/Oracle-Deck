@@ -87,7 +87,7 @@ const CardInfo = () => {
                     delete
                   </button>
                   <button className="modificationButton" onClick={modifyCard}>
-                    modify
+                    MODIFY
                   </button>
                 </section>
               </div>
@@ -95,8 +95,8 @@ const CardInfo = () => {
           </div>
         </div>
       ) : null}
-      <button className="backButton" onClick={() => navigate('/cards')}>
-        ALL CARDS
+      <button className="backButton" onClick={() => navigate(-1)}>
+        BACK
       </button>
     </div>
   )

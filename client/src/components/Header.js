@@ -8,13 +8,16 @@ const Header = () => {
           HOME
         </Link>
         <Link to="/dailypull" className="headerLink">
-          RANDOM PULL
+          RANDOM
         </Link>
         <Link to="/cards" className="headerLink">
-          THE DECK
+          DECK
+        </Link>
+        <Link to="/symbols" className="headerLink">
+          SYMBOLS
         </Link>
         <Link to="/createcard" className="headerLink">
-          CREATE CARD
+          CREATE
         </Link>
         <Link to="/mycards" className="headerLink">
           MY CARDS

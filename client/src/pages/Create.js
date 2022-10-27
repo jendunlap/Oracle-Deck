@@ -120,7 +120,7 @@ const Create = () => {
           ></textarea>
           <label htmlFor="createCardSymbol">card symbol:</label>
           {selectingSymbol ? (
-            <div className="imageMap">
+            <div className="symbolMap">
               {symbols.map((symbol) => (
                 <img
                   className="mappedSymbols"

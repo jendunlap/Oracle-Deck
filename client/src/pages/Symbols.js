@@ -20,15 +20,17 @@ const Symbols = () => {
   return (
     <div className="symbolGrid">
       <div className="allSymbols">
-        {symbols.map((symbol) => (
-          <Symbol
-            id={symbol._id}
-            key={symbol._id}
-            image={symbol.image}
-            name={symbol.name}
-            keywords={symbol.keywords}
-          />
-        ))}
+        {symbols
+          .sort((a, b) => a.name.localeCompare(b.name))
+          .map((symbol) => (
+            <Symbol
+              id={symbol._id}
+              key={symbol._id}
+              image={symbol.image}
+              name={symbol.name}
+              keywords={symbol.keywords}
+            />
+          ))}
       </div>
     </div>
   )

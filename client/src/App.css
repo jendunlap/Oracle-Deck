@@ -108,7 +108,6 @@ body {
 .cardImage {
   width: 390px;
   border-radius: 15px;
-  border: 5px solid white;
 }
 
 /* .cardImage:hover {
@@ -135,6 +134,21 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.cardImageBlack {
+  width: 390px;
+  border-radius: 15px;
+}
+
+.cardDivBlack {
+  width: 400px;
+  height: 600px;
+  background-color: black;
+  color: white;
+  margin: 20px;
+  border-radius: 15px;
+  /* border: solid 2px  rgb(96, 96, 96); */
 }
 
 /* CARD INFO */

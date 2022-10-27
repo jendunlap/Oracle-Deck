@@ -6,11 +6,7 @@ import Symbol from '../components/Symbol'
 const DailyPull = () => {
   let navigate = useNavigate()
 
-  let { cardId } = useParams()
-
-  const [cardInfo, setCardInfo] = useState(null)
-
-  const [symbolInfo, setSymbolInfo] = useState(null)
+  const [cardInfo, setCardInfo] = useState()
 
   const getCardInfo = async () => {
     const response = await axios.get(`http://localhost:3001/cards`)
@@ -21,12 +17,11 @@ const DailyPull = () => {
     )
   }
 
-  console.log(cardInfo)
-  // setSymbolInfo(cardInfo.symbols)
-
   useEffect(() => {
     getCardInfo()
-  }, [cardId])
+  }, [])
+
+  console.log(cardInfo)
 
   return (
     <div className="cardInfo">
@@ -67,6 +62,7 @@ const DailyPull = () => {
               <h5>{cardInfo.description}</h5>
             </div>
             <div className="cardSymbols">
+              {console.log(cardInfo.symbols)}
               {/* {cardInfo.symbols.map((symbol) => (
                 <Symbol
                   key={symbol._id}

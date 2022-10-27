@@ -12,7 +12,7 @@ const CardInfo = () => {
 
   const getCardInfo = async () => {
     const response = await axios.get(`http://localhost:3001/cards/${cardId}`)
-    // console.log(response)
+
     setCardInfo(response.data.card)
     setSymbolInfo(response.data.card.symbols)
   }
@@ -42,7 +42,11 @@ const CardInfo = () => {
               src={cardInfo.image}
               alt={cardInfo.name}
             ></img>
-            <h1 className="name">{cardInfo.name}</h1>
+            {cardInfo.base ? (
+              <h1 className="name">{cardInfo.name}</h1>
+            ) : (
+              <h1 className="nameWhite">{cardInfo.name}</h1>
+            )}
           </div>
           <div className="infoRight">
             <div className="cardKeywords">
@@ -76,19 +80,19 @@ const CardInfo = () => {
                 />
               ))}
             </div>
+            {cardInfo.base ? null : (
+              <div>
+                <section className="buttons">
+                  <button className="modificationButton" onClick={deleteCard}>
+                    delete
+                  </button>
+                  <button className="modificationButton" onClick={modifyCard}>
+                    modify
+                  </button>
+                </section>
+              </div>
+            )}
           </div>
-          {cardInfo.base ? null : (
-            <div>
-              <section className="buttons">
-                <button className="modificationButton" onClick={deleteCard}>
-                  Delete this Card
-                </button>
-                <button className="modificationButton" onClick={modifyCard}>
-                  Modify this Card
-                </button>
-              </section>
-            </div>
-          )}
         </div>
       ) : null}
       <button className="backButton" onClick={() => navigate('/cards')}>
@@ -96,67 +100,6 @@ const CardInfo = () => {
       </button>
     </div>
   )
-  //   <>
-  //     {cardInfo ? (
-  //       <div className="cardInfo">
-  //         <div className="cardInfoLeft">
-  //           <img
-  //             className="imageForCard"
-  //             src={cardInfo.image}
-  //             alt={cardInfo.name}
-  //           ></img>
-  //           <h1>{cardInfo.name}</h1>
-  //         </div>
-  //         <div className="cardInfoRight">
-  //           <div className="cardKeywords">
-  //             <div className="keywords">
-  //               {cardInfo.keywords.map((keyword, i) => (
-  //                 <h3 key={i} className="keywordsList">
-  //                   {keyword}
-  //                 </h3>
-  //               ))}
-  //             </div>
-  //             <div className="reverseKeywords">
-  //               {cardInfo.reverseKeywords.map((keyword) => (
-  //                 <h3 key={keyword} className="keywordsList">
-  //                   {keyword}
-  //                 </h3>
-  //               ))}
-  //             </div>
-  //           </div>
-  //           <div className="description">
-  //             <p>{cardInfo.description}</p>
-  //           </div>
-  //           <div className="cardSymbols">
-  //             {cardInfo.symbols.map((symbol) => (
-  //               <Symbol
-  //                 key={symbol._id}
-  //                 name={symbol.name}
-  //                 image={symbol.image}
-  //                 keywords={symbol.keywords}
-  //               />
-  //             ))}
-  //           </div>
-  //         </div>
-  //         {cardInfo.base ? null : (
-  //           <div>
-  //             <section className="buttons">
-  //               <button className="modificationButton" onClick={deleteCard}>
-  //                 Delete this Card
-  //               </button>
-  //               <button className="modificationButton" onClick={modifyCard}>
-  //                 Modify this Card
-  //               </button>
-  //             </section>
-  //           </div>
-  //         )}
-  //       </div>
-  //     ) : null}
-  //     <button className="backButton" onClick={() => navigate('/cards')}>
-  //       ALL CARDS
-  //     </button>
-  //   </>
-  // )
 }
 
 export default CardInfo

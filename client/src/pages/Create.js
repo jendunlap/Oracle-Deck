@@ -13,13 +13,15 @@ const Create = () => {
     description: '',
     base: false,
     image: '',
-    symbol: ''
+    symbols: []
   }
   const [formState, setFormState] = useState(initialState)
 
   const [selecting, setSelecting] = useState(false)
 
   const [selectingSymbol, setSelectingSymbol] = useState(false)
+
+  const [chosenSymbol, setChosenSymbol] = useState(null)
 
   const [symbols, setSymbols] = useState([])
 
@@ -40,10 +42,12 @@ const Create = () => {
   }
 
   const selectSymbol = (symbol) => {
+    console.log(symbol)
     let tempState = {
       ...formState,
-      symbol: { id: symbol._id, image: symbol.image }
+      symbols: [symbol._id]
     }
+    setChosenSymbol(symbol.image)
     setFormState(tempState)
     setSelectingSymbol(false)
   }
@@ -129,10 +133,10 @@ const Create = () => {
             </div>
           ) : (
             <div
-              className="cardImageButton"
+              className="cardSymbolButton"
               onClick={() => setSelectingSymbol(true)}
             >
-              <img className="selectedImage" src={formState.symbol.image} />
+              <img className="selectedSymbol" src={chosenSymbol} />
               CHANGE
             </div>
           )}

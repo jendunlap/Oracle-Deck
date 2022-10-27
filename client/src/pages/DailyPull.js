@@ -19,17 +19,10 @@ const DailyPull = () => {
         Math.floor(Math.random() * response.data.cards.length)
       ]
     )
-    // setSymbolInfo(
-    //   response.data.cards[
-    //     Math.floor(Math.random() * response.data.cards.length)
-    //   ].symbols
-    // )
-    // console.log(
-    //   response.data.cards.symbols[
-    //     Math.floor(Math.random() * response.data.cards.length)
-    //   ]
-    // )
   }
+
+  console.log(cardInfo)
+  // setSymbolInfo(cardInfo.symbols)
 
   useEffect(() => {
     getCardInfo()
@@ -45,7 +38,11 @@ const DailyPull = () => {
               src={cardInfo.image}
               alt={cardInfo.name}
             ></img>
-            <h1 className="name">{cardInfo.name}</h1>
+            {cardInfo.base ? (
+              <h1 className="name">{cardInfo.name}</h1>
+            ) : (
+              <h1 className="nameWhite">{cardInfo.name}</h1>
+            )}
           </div>
           <div className="infoRight">
             <div className="cardKeywords">
@@ -69,16 +66,16 @@ const DailyPull = () => {
             <div className="description">
               <h5>{cardInfo.description}</h5>
             </div>
-            {/* <div className="cardSymbols">
-              {cardInfo.symbols.map((symbol) => (
+            <div className="cardSymbols">
+              {/* {cardInfo.symbols.map((symbol) => (
                 <Symbol
                   key={symbol._id}
                   name={symbol.name}
                   image={symbol.image}
                   keywords={symbol.keywords}
                 />
-              ))}
-            </div> */}
+              ))} */}
+            </div>
           </div>
         </div>
       ) : null}

@@ -14,7 +14,7 @@ const Modify = () => {
     description: '',
     base: false,
     image: '',
-    symbol: ''
+    symbols: [{ _id: '', image: '' }]
   }
 
   const [formState, setFormState] = useState(initialState)
@@ -23,6 +23,8 @@ const Modify = () => {
 
   const [selectingSymbol, setSelectingSymbol] = useState(false)
 
+  const [chosenSymbol, setChosenSymbol] = useState(null)
+
   const [symbols, setSymbols] = useState([])
 
   const getSymbols = async () => {
@@ -30,10 +32,6 @@ const Modify = () => {
     setSymbols(response.data.symbols)
     console.log(response.data.symbols)
   }
-
-  useEffect(() => {
-    getSymbols()
-  }, [])
 
   const selectImage = (image) => {
     let tempState = { ...formState, image: image.url }
@@ -44,8 +42,9 @@ const Modify = () => {
   const selectSymbol = (symbol) => {
     let tempState = {
       ...formState,
-      symbol: { id: symbol._id, image: symbol.image }
+      symbols: [symbol._id]
     }
+    setChosenSymbol(symbol.image)
     setFormState(tempState)
     setSelectingSymbol(false)
   }
@@ -54,7 +53,11 @@ const Modify = () => {
     const getCardInfo = async () => {
       const response = await axios.get(`http://localhost:3001/cards/${cardId}`)
       setFormState(response.data.card)
-      console.log(response)
+      if (response.data.card.symbols.length > 0) {
+        console.log(response.data.card.symbols[0].image)
+        setChosenSymbol(response.data.card.symbols[0].image)
+      }
+      getSymbols()
     }
     getCardInfo()
   }, [])
@@ -140,10 +143,10 @@ const Modify = () => {
             </div>
           ) : (
             <div
-              className="cardImageButton"
+              className="cardSymbolButton"
               onClick={() => setSelectingSymbol(true)}
             >
-              {/* <img className="selectedImage" src={formState.symbol.image} /> */}
+              <img className="selectedSymbol" src={chosenSymbol} />
               CHANGE
             </div>
           )}

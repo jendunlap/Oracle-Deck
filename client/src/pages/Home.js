@@ -8,7 +8,10 @@ const Home = () => {
         <div className="homeLinks">
           <div className="homeFlip">
             <Link to="/cards" className="homeImage">
-              <img src="https://i.imgur.com/xOYeoN5.png" />
+              <img
+                className="homeImage2"
+                src="https://i.imgur.com/xOYeoN5.png"
+              />
               <h2 className="showHover">DECK</h2>
             </Link>
           </div>

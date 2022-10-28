@@ -6,6 +6,7 @@ import Symbol from '../components/Symbol'
 const Symbols = () => {
   const [symbols, setSymbols] = useState([])
   let { symbolsId } = useParams()
+  let navigate = useNavigate()
 
   const getSymbols = async () => {
     const response = await axios.get(`http://localhost:3001/symbols`)
@@ -18,21 +19,26 @@ const Symbols = () => {
   }, [symbolsId])
 
   return (
-    <div className="symbolGrid">
-      <div className="allSymbols">
-        {symbols
-          .sort((a, b) => a.name.localeCompare(b.name))
-          .map((symbol) => (
-            <Symbol
-              id={symbol._id}
-              key={symbol._id}
-              image={symbol.image}
-              name={symbol.name}
-              keywords={symbol.keywords}
-            />
-          ))}
+    <>
+      <div className="symbolGrid">
+        <div className="allSymbols">
+          {symbols
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map((symbol) => (
+              <Symbol
+                id={symbol._id}
+                key={symbol._id}
+                image={symbol.image}
+                name={symbol.name}
+                keywords={symbol.keywords}
+              />
+            ))}
+        </div>
       </div>
-    </div>
+      <button className="backButton" onClick={() => navigate(-1)}>
+        BACK
+      </button>
+    </>
   )
 }
 

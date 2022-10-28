@@ -237,6 +237,8 @@ body {
   padding: 0 0px 10px 10px;
   width: 140px;
   margin: 13px 10px 13px 0;
+  text-decoration: none;
+  color: white;
 }
 
 .symbolsList {
@@ -272,20 +274,20 @@ ul {
 
 .createTitle {
   font-size: 70px;
-  margin: 80px 0 0 0 ;
+  margin: 60px 0 0 0 ;
 }
 
 .createForm, .modifyForm {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: top;
+  align-items: space-between;
   /* height: 100vh; */
   padding: 20px 0 0 0;
 }
 
 .left, .right {
-  width: 500px;
+  width: 390px;
   height: 500px;
   display: flex;
   flex-direction: column;
@@ -304,11 +306,16 @@ ul {
 .cardImageButton {
   background-color:rgb(83, 81, 81);
   padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .imageMap {
   display: flex;
-  height: 300px;
+  height: 500px;
   width: 100%;
   flex-wrap: wrap;
   justify-content: center;
@@ -318,7 +325,7 @@ ul {
 
 .symbolMap {
   display: flex;
-  height: 300px;
+  height: 1000px;
   width: 100%;
   flex-wrap: wrap;
   justify-content: center;
@@ -332,7 +339,7 @@ ul {
 }
 
 .selectedImage {
-  width: 331px;
+  width: 350px;
   border-radius: 10px;
 }
 
@@ -356,14 +363,10 @@ ul {
   background-color:rgb(83, 81, 81);
   padding: 20px;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.symbolMap {
-  display: flex;
-  flex-direction: column;
 }
 
 /* ABOUT */
@@ -383,4 +386,39 @@ ul {
 .aboutLeft, .aboutRight {
   width: 588px;
   padding: 0 10px 0 10px;
+}
+
+.magic {
+  font-size: 18px;
+  margin: 0
+}
+
+.created {
+  margin: 0 0 15px;
+}
+
+.aboutKeywords {
+  border: 5px solid white;
+  width: 578px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 20px;
+}
+
+.moons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 392px;
+}
+
+.aboutDescription {
+  background-color: rgb(83, 81, 81);
+  padding: 3px 40px 3px 40px;
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: normal;
+  text-align: justify;
 }

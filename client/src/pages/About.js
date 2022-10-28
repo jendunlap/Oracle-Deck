@@ -13,15 +13,15 @@ const About = () => {
           ></img>
         </div>
         <div className="aboutRight">
-          <div className="cardKeywords">
-            <div className="keywords">
+          <div className="aboutKeywords">
+            <div className="moons">
               <img src="https://i.imgur.com/1FQFvDq.jpeg" />
-            </div>
-            <div className="reverseKeywords">
               <img src="https://i.imgur.com/yMYW27q.jpg" />
             </div>
+            <h5 className="magic">MAY YOU FIND THE MAGIC YOU SEEK</h5>
+            <h5 className="created">created by erin alise borzak</h5>
           </div>
-          <div className="description">
+          <div className="aboutDescription">
             <h5>
               Inspired by the beauty of the natural world around us, The Hollow
               Valley Deck of Symbols is an oracle deck that offers us the
@@ -61,6 +61,65 @@ const About = () => {
               finding magic in the everyday, in the simplicity and simultaneous
               vastness of our lives.{' '}
             </h5>
+          </div>
+          <div className="cardSymbols">
+            <div className="symbolImage">
+              <div className="imgageWrapper">
+                <img
+                  src="https://i.imgur.com/leApeWR.jpeg"
+                  alt="purchase"
+                ></img>
+              </div>
+              <div className="infoWrapper">
+                <a
+                  className="symbolName"
+                  target="_blank"
+                  href="https://www.hollowvalley.com/shop/edxf00rqom69eej4bxunpzrk12r0rc"
+                >
+                  PURCHASE
+                </a>
+                <p className="symbolsList">
+                  your own<br></br>deck
+                </p>
+              </div>
+            </div>
+            <div className="symbolImage">
+              <div className="imgageWrapper">
+                <img
+                  src="https://i.imgur.com/GAXRdJa.jpg"
+                  alt="instagram"
+                ></img>
+              </div>
+              <div className="infoWrapper">
+                <a
+                  className="symbolName"
+                  target="_blank"
+                  href="https://www.instagram.com/thehollowvalley/"
+                >
+                  INSTAGRAM
+                </a>
+                <p className="symbolsList">
+                  erin's<br></br>IG
+                </p>
+              </div>
+            </div>
+            <div className="symbolImage">
+              <div className="imgageWrapper">
+                <img src="https://i.imgur.com/eB45qmZ.jpeg" alt="website"></img>
+              </div>
+              <div className="infoWrapper">
+                <a
+                  className="symbolName"
+                  target="_blank"
+                  href="https://www.erinalise.com/"
+                >
+                  WEBSITE
+                </a>
+                <p className="symbolsList">
+                  see more<br></br>work
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
 import images from '../images'
 
@@ -128,7 +128,9 @@ const Modify = () => {
             rows="10"
             value={formState.description}
           ></textarea>
-          <label htmlFor="createCardSymbol">card symbol:</label>
+          <Link to="/symbols" className="headerLink">
+            card symbol:
+          </Link>
           {selectingSymbol ? (
             <div className="symbolMap">
               {symbols.map((symbol) => (

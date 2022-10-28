@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
 import images from '../images.js'
 
@@ -123,7 +123,10 @@ const Create = () => {
             rows="10"
             value={formState.description}
           ></textarea>
-          <label htmlFor="createCardSymbol">card symbol:</label>
+          {/* <label htmlFor="createCardSymbol">card symbol:</label> */}
+          <Link to="/symbols" className="headerLink">
+            card symbol:
+          </Link>
           {selectingSymbol ? (
             <div className="symbolMap">
               {symbols.map((symbol) => (

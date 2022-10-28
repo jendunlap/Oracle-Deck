@@ -37,15 +37,12 @@ const About = () => {
               more open you will be to acknowledging the power of these symbols
               in your life. You will become more conscious of the universe
               placing them in your path as a reminder of the deep wisdom you
-              hold within you.{' '}
-            </h5>
-
-            <h5>
-              Symbolism creates our stories and guides us through them. This
-              deck connects us to something greater than ourselves - a power
-              that comes from history, ancestry, and the tales passed down by
-              generations of people across the world. The archetypal symbols in
-              this deck are pulled from a vast range of symbols that saturate
+              hold within you. <br></br>
+              <br></br>Symbolism creates our stories and guides us through them.
+              This deck connects us to something greater than ourselves - a
+              power that comes from history, ancestry, and the tales passed down
+              by generations of people across the world. The archetypal symbols
+              in this deck are pulled from a vast range of symbols that saturate
               the art, literature, and mythology from the entirety of human
               existence. The beauty of symbolism is that it’s a language we
               already know - symbolism is woven into the fabric of our lives

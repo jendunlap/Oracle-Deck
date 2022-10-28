@@ -417,7 +417,7 @@ ul {
 
 .aboutDescription {
   background-color: rgb(83, 81, 81);
-  padding: 3px 40px 3px 40px;
+  padding: .2px 40px .2px 40px;
   font-family: 'Raleway', sans-serif;
   letter-spacing: normal;
   text-align: justify;

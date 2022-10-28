@@ -332,7 +332,7 @@ ul {
 }
 
 .selectedImage {
-  width: 100%;
+  width: 331px;
   border-radius: 10px;
 }
 
@@ -359,6 +359,11 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.symbolMap {
+  display: flex;
+  flex-direction: column;
 }
 
 /* ABOUT */

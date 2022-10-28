@@ -64,7 +64,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      <button className="backButton" onClick={() => navigate(-1)}>
+      <button className="backButton" onClick={() => navigate('/')}>
         BACK
       </button>
     </>

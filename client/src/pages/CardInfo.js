@@ -87,7 +87,7 @@ const CardInfo = () => {
                     delete
                   </button>
                   <button className="modificationButton" onClick={modifyCard}>
-                    MODIFY
+                    modify
                   </button>
                 </section>
               </div>

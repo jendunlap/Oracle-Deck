@@ -76,24 +76,29 @@ const Create = () => {
             value={formState.name}
           />
           <label htmlFor="createCardImage">card image:</label>
-          {selecting ? (
-            <div className="imageMap">
-              {images.map((image, index) => (
-                <img
-                  className="mappedImages"
-                  key={index}
-                  src={image.url}
-                  alt={image.name}
-                  onClick={() => selectImage(image)}
-                />
-              ))}
-            </div>
-          ) : (
-            <div className="cardImageButton" onClick={() => setSelecting(true)}>
-              <img className="selectedImage" src={formState.image} />
-              CHANGE
-            </div>
-          )}
+          <div className="leftDiv">
+            {selecting ? (
+              <div className="imageMap">
+                {images.map((image, index) => (
+                  <img
+                    className="mappedImages"
+                    key={index}
+                    src={image.url}
+                    alt={image.name}
+                    onClick={() => selectImage(image)}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div
+                className="cardImageButton"
+                onClick={() => setSelecting(true)}
+              >
+                <img className="selectedImage" src={formState.image} />
+                CHANGE
+              </div>
+            )}
+          </div>
         </div>
         <div className="right">
           <label htmlFor="keywords">keywords:</label>

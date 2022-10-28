@@ -10,7 +10,11 @@ const images = [
   { name: 'HAND', url: 'https://i.imgur.com/l70M0th.jpg' },
   { name: 'LILLIES', url: 'https://i.imgur.com/FngQbFh.jpg' },
   { name: 'MOTH', url: 'https://i.imgur.com/dt8Vm4E.jpg' },
-  { name: 'OWL', url: 'https://i.imgur.com/MTwMhhJ.jpg' }
+  { name: 'OWL', url: 'https://i.imgur.com/MTwMhhJ.jpg' },
+  { name: 'CRAB', url: 'https://i.imgur.com/OGmO2Kz.jpg' },
+  { name: 'WILLOW', url: 'https://i.imgur.com/XQvRBBT.jpg' },
+  { name: 'EVERGREEN', url: 'https://i.imgur.com/m5QWuUC.jpg' },
+  { name: 'HANDS', url: 'https://i.imgur.com/e1Fhdl5.jpg' }
 ]
 
 export default images

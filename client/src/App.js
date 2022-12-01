@@ -12,7 +12,7 @@ import Modify from './pages/Modify'
 import Symbols from './pages/Symbols'
 
 const App = () => {
-  console.log(window.location)
+  // console.log(window.location)
   return (
     <div>
       {/* {window.location.pathname === '/' ? null : <Header />} */}

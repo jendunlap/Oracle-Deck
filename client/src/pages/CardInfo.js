@@ -11,7 +11,7 @@ const CardInfo = () => {
   const [symbolInfo, setSymbolInfo] = useState(null)
 
   const getCardInfo = async () => {
-    const response = await axios.get(`http://localhost:3001/cards/${cardId}`)
+    const response = await axios.get(`/cards/${cardId}`)
 
     setCardInfo(response.data.card)
     setSymbolInfo(response.data.card.symbols)
@@ -20,7 +20,7 @@ const CardInfo = () => {
   let navigate = useNavigate()
 
   const deleteCard = async () => {
-    await axios.delete(`http://localhost:3001/cards/${cardId}`)
+    await axios.delete(`/cards/${cardId}`)
     navigate(`/mycards`)
   }
 

@@ -51,7 +51,7 @@ const Modify = () => {
 
   useEffect(() => {
     const getCardInfo = async () => {
-      const response = await axios.get(`http://localhost:3001/cards/${cardId}`)
+      const response = await axios.get(`/cards/${cardId}`)
       setFormState(response.data.card)
       if (response.data.card.symbols.length > 0) {
         console.log(response.data.card.symbols[0].image)
@@ -64,7 +64,7 @@ const Modify = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    await axios.put(`http://localhost:3001/cards/${cardId}`, formState)
+    await axios.put(`/cards/${cardId}`, formState)
     setFormState(initialState)
     navigate(`/cards/${cardId}`)
   }

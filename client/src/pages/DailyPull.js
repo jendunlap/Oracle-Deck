@@ -9,7 +9,7 @@ const DailyPull = () => {
   const [cardInfo, setCardInfo] = useState()
 
   const getCardInfo = async () => {
-    const response = await axios.get(`/cards`)
+    const response = await axios.get(`/cards/${cardId}`)
     setCardInfo(
       response.data.cards[
         Math.floor(Math.random() * response.data.cards.length)

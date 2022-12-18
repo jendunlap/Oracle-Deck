@@ -9,7 +9,7 @@ const Symbols = () => {
   let navigate = useNavigate()
 
   const getSymbols = async () => {
-    const response = await axios.get(`/symbols`)
+    const response = await axios.get(`http://localhost:3001/symbols`)
     setSymbols(response.data.symbols)
     console.log(response.data.symbols)
   }

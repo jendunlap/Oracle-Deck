@@ -26,7 +26,7 @@ const Create = () => {
   const [symbols, setSymbols] = useState([])
 
   const getSymbols = async () => {
-    const response = await axios.get(`http://localhost:3001/symbols`)
+    const response = await axios.get(`/symbols`)
     setSymbols(response.data.symbols)
     console.log(response.data.symbols)
   }
@@ -55,7 +55,7 @@ const Create = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     console.log(formState)
-    await axios.post('http://localhost:3001/cards', formState)
+    await axios.post('/cards', formState)
     navigate('/mycards')
   }
 

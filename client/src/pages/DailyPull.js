@@ -5,12 +5,11 @@ import Symbol from '../components/Symbol'
 
 const DailyPull = () => {
   let navigate = useNavigate()
-  let { cardId } = useParams()
 
   const [cardInfo, setCardInfo] = useState()
 
   const getCardInfo = async () => {
-    const response = await axios.get(`http://localhost:3001/cards/${cardId}`)
+    const response = await axios.get(`/cards/`)
     setCardInfo(
       response.data.cards[
         Math.floor(Math.random() * response.data.cards.length)
@@ -20,7 +19,7 @@ const DailyPull = () => {
 
   useEffect(() => {
     getCardInfo()
-  }, [cardId])
+  }, [])
 
   console.log(cardInfo)
 

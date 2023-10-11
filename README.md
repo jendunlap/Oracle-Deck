@@ -52,7 +52,7 @@ Nothing speaks to you? Use the create feature to build or modify your own deck, 
 
 ### **_Flex Those Introspective Muscles_**
 
-Check out the deployed game on [Heroku](https://fakey-mc-fake-link.com)!
+Check out the deployed game on [Heroku](https://oracle-deck.herokuapp.com/)!
 
 Read your cards or make your own! This is YOUR journey!
 
